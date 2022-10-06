@@ -2,6 +2,7 @@
 
 int ledPin = 13; //Relay Pin
 int base_delay = 1000;
+int base_delay2 = 3000; //Leave relay on
 
 int us1T = 5; //Trigger Pn 
 int us1E = 6; //Echo Pin
@@ -19,8 +20,9 @@ void loop()
 {
     if (us1.dist() <= min_range && us1.dist() != 0.00) {
       digitalWrite(ledPin, HIGH);
-      delay(base_delay);
+      delay(base_delay2);
       digitalWrite(ledPin, LOW);
+      delay(base_delay);
     }
     Serial.println(us1.dist());
     
